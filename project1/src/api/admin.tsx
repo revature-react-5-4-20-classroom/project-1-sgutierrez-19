@@ -1,4 +1,4 @@
-import { server } from './index';
+import { server } from './server';
 
 export async function updateUser(
   userToUpdate: number,

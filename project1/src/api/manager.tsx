@@ -1,4 +1,4 @@
-import { server } from './index';
+import { server } from './server';
 
 export async function getAllUsers() {
   return await server.get('/users');

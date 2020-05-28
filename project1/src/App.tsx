@@ -1,17 +1,37 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import { NavbarComp } from './components/Navbar';
+import { User } from './model/user';
+import { LoginC } from './components/pages/Auth/login';
 
-function App() {
-  return (
-    <div className='App'>
-      {/* 
-      header
-      navbar
-      body
-      footer 
-      */}
-    </div>
-  );
+interface IAppState {
+  currUser: User | null;
 }
 
-export default App;
+export class App extends React.Component<any, IAppState> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      currUser: null,
+    };
+  }
+
+  updateUser = (user: User) => {
+    this.setState({
+      currUser: user,
+    });
+  };
+
+  render() {
+    return (
+      <div className='App'>
+        <NavbarComp />
+        <LoginC updateUser={this.updateUser} />
+        <Router>
+          <Switch>{/* paths/components */}</Switch>
+        </Router>
+      </div>
+    );
+  }
+}

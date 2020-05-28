@@ -1,4 +1,4 @@
-import { server } from './index';
+import { server } from './server';
 
 export async function getUserById(id: number) {
   return await server.get(`/users/${id}`);
