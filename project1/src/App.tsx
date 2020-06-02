@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { NavbarComp } from './components/Navbar';
 import { User } from './model/user';
-import { LoginC } from './components/pages/Auth/login';
+import { LandingC } from './components/pages/Landing';
+import { Container } from 'reactstrap';
 
 interface IAppState {
   currUser: User | null;
@@ -18,6 +19,7 @@ export class App extends React.Component<any, IAppState> {
   }
 
   updateUser = (user: User) => {
+    console.log(`user: ${JSON.stringify(user)}`);
     this.setState({
       currUser: user,
     });
@@ -25,12 +27,14 @@ export class App extends React.Component<any, IAppState> {
 
   render() {
     return (
-      <div className='App'>
-        <NavbarComp />
-        <LoginC updateUser={this.updateUser} />
-        <Router>
-          <Switch>{/* paths/components */}</Switch>
-        </Router>
+      <div className='App' id='app-image'>
+        <NavbarComp currentUser={this.state.currUser} />
+        <Container id='main-container'>
+          <LandingC updateUser={this.updateUser} />
+          <Router>
+            <Switch>{/* paths/components */}</Switch>
+          </Router>
+        </Container>
       </div>
     );
   }

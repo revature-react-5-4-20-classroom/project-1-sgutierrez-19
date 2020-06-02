@@ -1,7 +1,7 @@
 import React from 'react';
-import { User } from '../../../model/user';
+import { User } from '../../model/user';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { login } from '../../../api/auth';
+import { login } from '../../api/auth';
 
 interface ILoginCProps {
   updateUser: (user: User) => void;
