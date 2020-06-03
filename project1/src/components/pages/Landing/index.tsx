@@ -4,9 +4,13 @@ import { LoginC } from '../../Auth/login';
 import { Row, Col } from 'reactstrap';
 
 import './style.css';
+import { ReimbursementContainerC } from '../../ReimbursementContainer';
 
 interface ILandingCProps {
+  currUser: User | null;
   updateUser: (user: User) => void;
+  history: any;
+  match: any;
 }
 
 export class LandingC extends React.Component<ILandingCProps> {
@@ -17,11 +21,21 @@ export class LandingC extends React.Component<ILandingCProps> {
     return (
       <>
         <Row className='h-100'>
-          <Col className='landing-panels' xs='8' id='left-panel'></Col>
-          <Col className='landing-panels' xs='4'>
+          <Col m='8'>
+            <Row>
+              <Col>
+                <ReimbursementContainerC currUser={this.props.currUser} />
+              </Col>
+            </Row>
+          </Col>
+          <Col id='login-panel' m='4'>
             <Row>
               <Col xs='12'>
-                <LoginC updateUser={this.props.updateUser} />
+                <LoginC
+                  history={this.props.history}
+                  match={this.props.match}
+                  updateUser={this.props.updateUser}
+                />
               </Col>
             </Row>
           </Col>

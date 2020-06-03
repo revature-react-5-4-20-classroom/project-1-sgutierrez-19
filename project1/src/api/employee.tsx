@@ -1,11 +1,46 @@
 import { server } from './server';
+import { Reimbursement } from '../model/reimbursement';
 
 export async function getUserById(id: number) {
   return await server.get(`/users/${id}`);
 }
 
 export async function getReimById(userId: number) {
-  return await server.get(`/reimbursements/author/userId/${userId}`);
+  try {
+    const response = await server.get(
+      `/reimbursements/author/userId/${userId}`
+    );
+    console.log('FROM API ROUTES: ', response);
+
+    let fetchedArr = response.data.map((r: Reimbursement) => {
+      // const {
+      //   author,
+      //   amount,
+      //   date_submitted,
+      //   description,
+      //   status,
+      //   type,
+      //   id,
+      //   date_resolved,
+      //   resolver,
+      // } = r;
+      return new Reimbursement(
+        r.author,
+        r.amount,
+        r.date_submitted,
+        r.description,
+        r.status,
+        r.type,
+        r.id,
+        r.date_resolved,
+        r.resolver
+      );
+    });
+    console.log(fetchedArr);
+    return fetchedArr;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export async function createReim(

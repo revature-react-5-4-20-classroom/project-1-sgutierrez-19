@@ -5,6 +5,7 @@ import { NavbarComp } from './components/Navbar';
 import { User } from './model/user';
 import { LandingC } from './components/pages/Landing';
 import { Container } from 'reactstrap';
+import { ViewReimbursementsPageC } from './components/pages/ViewReimbursements';
 
 interface IAppState {
   currUser: User | null;
@@ -29,10 +30,33 @@ export class App extends React.Component<any, IAppState> {
     return (
       <div className='App' id='app-image'>
         <NavbarComp currentUser={this.state.currUser} />
-        <Container id='main-container'>
-          <LandingC updateUser={this.updateUser} />
+        <Container id='main-container' className='container-fluid'>
           <Router>
-            <Switch>{/* paths/components */}</Switch>
+            <Switch>
+              <Route
+                path='/landing'
+                render={(props: any) => {
+                  return (
+                    <LandingC
+                      currUser={this.state.currUser}
+                      updateUser={this.updateUser}
+                      {...props}
+                    />
+                  );
+                }}
+              ></Route>
+              <Route
+                path='/employee/reimbursements/view'
+                render={(props: any) => {
+                  return (
+                    <ViewReimbursementsPageC
+                      currUser={this.state.currUser}
+                      {...props}
+                    />
+                  );
+                }}
+              ></Route>
+            </Switch>
           </Router>
         </Container>
       </div>

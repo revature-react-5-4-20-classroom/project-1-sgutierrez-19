@@ -9,7 +9,7 @@ export class Reimbursement {
   date_resolved?: string;
   resolver?: number;
   constructor(
-    author: number,
+    author: number | string,
     amount: number,
     date_submitted: string,
     description: string,

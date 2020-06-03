@@ -5,6 +5,8 @@ import { login } from '../../api/auth';
 
 interface ILoginCProps {
   updateUser: (user: User) => void;
+  history: any;
+  match: any;
 }
 
 interface ILoginCState {
@@ -49,6 +51,7 @@ export class LoginC extends React.Component<ILoginCProps, ILoginCState> {
         username: '',
         password: '',
       });
+      this.props.history.push('/employee/reimbursements/view');
     } catch (error) {
       this.setState({
         password: '',
