@@ -13,17 +13,6 @@ export async function getReimById(userId: number) {
     console.log('FROM API ROUTES: ', response);
 
     let fetchedArr = response.data.map((r: Reimbursement) => {
-      // const {
-      //   author,
-      //   amount,
-      //   date_submitted,
-      //   description,
-      //   status,
-      //   type,
-      //   id,
-      //   date_resolved,
-      //   resolver,
-      // } = r;
       return new Reimbursement(
         r.author,
         r.amount,

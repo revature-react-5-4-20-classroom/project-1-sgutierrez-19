@@ -47,22 +47,24 @@ export class ReimbursementCardC extends React.Component<
                 </CardText>
               </Col>
             </Row>
-            <Col md='6'>
-              <CardText>
-                Resolved By:{' '}
-                {this.props.reimbursement.resolver
-                  ? this.props.reimbursement.resolver
-                  : '--'}
-              </CardText>
-            </Col>
-            <Col md='6'>
-              <CardText>
-                Resolved On:{' '}
-                {this.props.reimbursement.date_resolved
-                  ? this.props.reimbursement.date_resolved
-                  : '--'}
-              </CardText>
-            </Col>
+            <Row>
+              <Col md='6'>
+                <CardText>
+                  Resolved By:{' '}
+                  {this.props.reimbursement.resolver
+                    ? this.props.reimbursement.resolver
+                    : '--'}
+                </CardText>
+              </Col>
+              <Col md='6'>
+                <CardText>
+                  Resolved On:{' '}
+                  {this.props.reimbursement.date_resolved
+                    ? this.props.reimbursement.date_resolved
+                    : '--'}
+                </CardText>
+              </Col>
+            </Row>
             <Row></Row>
             {/* <Button>Button</Button> */}
           </CardBody>

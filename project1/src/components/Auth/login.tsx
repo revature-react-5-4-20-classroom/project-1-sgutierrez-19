@@ -51,7 +51,7 @@ export class LoginC extends React.Component<ILoginCProps, ILoginCState> {
         username: '',
         password: '',
       });
-      this.props.history.push('/employee/reimbursements/view');
+      this.props.history.push('/manager/employees');
     } catch (error) {
       this.setState({
         password: '',

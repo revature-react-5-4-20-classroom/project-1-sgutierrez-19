@@ -6,6 +6,7 @@ import { User } from './model/user';
 import { LandingC } from './components/pages/Landing';
 import { Container } from 'reactstrap';
 import { ViewReimbursementsPageC } from './components/pages/ViewReimbursements';
+import { UserContainerC } from './components/UserContainer';
 
 interface IAppState {
   currUser: User | null;
@@ -54,6 +55,12 @@ export class App extends React.Component<any, IAppState> {
                       {...props}
                     />
                   );
+                }}
+              ></Route>
+              <Route
+                path='/manager/employees'
+                render={(props: any) => {
+                  return <UserContainerC {...props} />;
                 }}
               ></Route>
             </Switch>

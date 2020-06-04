@@ -1,7 +1,23 @@
 import { server } from './server';
+import { User } from '../model/user';
 
 export async function getAllUsers() {
-  return await server.get('/users');
+  try {
+    const response = await server.get('/users');
+    let fetchedArr = response.data.map((u: User) => {
+      return new User(
+        u.id,
+        u.username,
+        u.first_name,
+        u.last_name,
+        u.email,
+        u.role
+      );
+    });
+    return fetchedArr;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export async function getReimByStatus(statusId: number) {

@@ -1,0 +1,9 @@
+.user-card {
+  height: 250px;
+  width: 500px;
+}
+
+.card-desc {
+  font-weight: bold;
+  color: blue;
+}
