@@ -7,6 +7,7 @@ import { LandingC } from './components/pages/Landing';
 import { Container } from 'reactstrap';
 import { ViewReimbursementsPageC } from './components/pages/ViewReimbursements';
 import { UserContainerC } from './components/UserContainer';
+import { HomeC } from './components/pages/Home';
 
 interface IAppState {
   currUser: User | null;
@@ -44,6 +45,13 @@ export class App extends React.Component<any, IAppState> {
                       {...props}
                     />
                   );
+                }}
+              ></Route>
+
+              <Route
+                path='/home'
+                render={(props: any) => {
+                  return <HomeC {...props} currUser={this.state.currUser} />;
                 }}
               ></Route>
               <Route

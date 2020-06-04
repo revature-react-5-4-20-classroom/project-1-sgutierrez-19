@@ -118,7 +118,7 @@ export class NavbarComp extends React.Component<any, INavbarCompState> {
     const userRole = this.props.currUser && this.props.currUser.role;
     if (loggedIn && userRole === 'Employee') {
       return this.empNav();
-    } else if (loggedIn && userRole === 'Financial Manager') {
+    } else if (loggedIn && userRole === 'Finance Manager') {
       return this.fManNav();
     } else {
       return this.guestNav();

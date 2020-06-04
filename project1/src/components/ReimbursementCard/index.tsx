@@ -18,7 +18,7 @@ export class ReimbursementCardC extends React.Component<
   render() {
     return (
       <div>
-        <Card className='reimbursement-card'>
+        <Card>
           <CardBody>
             <Row>
               <Col md='12'>
