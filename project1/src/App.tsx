@@ -8,6 +8,7 @@ import { Container } from 'reactstrap';
 import { ViewReimbursementsPageC } from './components/pages/ViewReimbursements';
 import { UserContainerC } from './components/UserContainer';
 import { HomeC } from './components/pages/Home';
+import { SubmitReimPageC } from './components/pages/SubmitReim';
 
 interface IAppState {
   currUser: User | null;
@@ -69,6 +70,17 @@ export class App extends React.Component<any, IAppState> {
                 path='/manager/employees'
                 render={(props: any) => {
                   return <UserContainerC {...props} />;
+                }}
+              ></Route>
+              <Route
+                path='/employee/reimbursements/submit'
+                render={(props: any) => {
+                  return (
+                    <SubmitReimPageC
+                      currUser={this.state.currUser}
+                      {...props}
+                    />
+                  );
                 }}
               ></Route>
             </Switch>

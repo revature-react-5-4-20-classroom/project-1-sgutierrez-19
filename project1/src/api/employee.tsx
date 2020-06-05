@@ -34,12 +34,14 @@ export async function getReimById(userId: number) {
 
 export async function createReim(
   amount: number,
-  descrption: string,
+  description: string,
   type: string
-) {
-  return await server.post(`/reimbursements`, {
-    amount: amount,
-    descrption: descrption,
-    type: type,
-  });
+): Promise<any> {
+  try {
+    let bodyObj: any = { amount, description, type };
+    let response = await server.post(`/reimbursements`, bodyObj);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }

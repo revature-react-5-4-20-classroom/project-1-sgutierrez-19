@@ -1,5 +1,4 @@
 import React from 'react';
-import { Switch, Route } from 'react-router';
 import { User } from '../../../model/user';
 import { Row, Col } from 'reactstrap';
 
@@ -30,7 +29,16 @@ export class HomeC extends React.Component<IHomeCProps, any> {
               </Row>
               <Row>
                 <Col xs={12}>
-                  <button>Submit New Reimbursement</button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push(
+                        '/employee/reimbursements/submit'
+                      );
+                    }}
+                  >
+                    Submit New Reimbursement
+                  </button>
                 </Col>
               </Row>
 
