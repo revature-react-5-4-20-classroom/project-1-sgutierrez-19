@@ -51,7 +51,13 @@ export class LoginC extends React.Component<ILoginCProps, ILoginCState> {
         username: '',
         password: '',
       });
-      this.props.history.push('/home');
+      if (loggedUser.role === 'Employee') {
+        this.props.history.push('/home');
+      } else if (loggedUser.role === 'Finance Manager') {
+        this.props.history.push('/home');
+      } else {
+        this.props.history.push('/landing');
+      }
     } catch (error) {
       this.setState({
         password: '',

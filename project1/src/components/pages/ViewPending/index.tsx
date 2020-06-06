@@ -1,10 +1,9 @@
 import React from 'react';
 import { User } from '../../../model/user';
-import { LoginC } from '../../Auth/login';
-import { Row, Col } from 'reactstrap';
+// import { ReimbursementContainerC } from '../../ReimbursementContainer';
+// import { Row, Col } from 'reactstrap';
 
 import './style.css';
-import { ReimbursementContainerC } from '../../ReimbursementContainer';
 
 interface IViewReimbursementsPageCProps {
   currUser: User | null;
@@ -21,13 +20,14 @@ export class ViewReimbursementsPageC extends React.Component<
   }
   render() {
     return (
-      <>
-        <Row className='h-100'>
-          <Col sm={{ size: 8, offset: 2 }}>
-            <ReimbursementContainerC currUser={this.props.currUser} />
-          </Col>
-        </Row>
-      </>
+      // <>
+      //   <Row className='h-100'>
+      //     <Col sm={{ size: 8, offset: 2 }}>
+      //       {<ReimbursementContainerC currUser={this.props.currUser} />}
+      //     </Col>
+      //   </Row>
+      // </>
+      <></>
     );
   }
 }

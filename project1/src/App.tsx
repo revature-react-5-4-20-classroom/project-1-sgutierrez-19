@@ -5,10 +5,8 @@ import { NavbarComp } from './components/Navbar';
 import { User } from './model/user';
 import { LandingC } from './components/pages/Landing';
 import { Container } from 'reactstrap';
-import { ViewReimbursementsPageC } from './components/pages/ViewReimbursements';
-import { UserContainerC } from './components/UserContainer';
+import { EmpReimbursementsPageC } from './components/pages/EmpReimbursementsPage';
 import { HomeC } from './components/pages/Home';
-import { SubmitReimPageC } from './components/pages/SubmitReim';
 
 interface IAppState {
   currUser: User | null;
@@ -55,25 +53,32 @@ export class App extends React.Component<any, IAppState> {
                   return <HomeC {...props} currUser={this.state.currUser} />;
                 }}
               ></Route>
+
+              {/* <Route
+                path='/employee'
+                render={(props: any) => {
+                  return <HomeC {...props} currUser={this.state.currUser} />;
+                }}
+              ></Route> */}
               <Route
-                path='/employee/reimbursements/view'
+                path='/home/employee/reimbursements'
                 render={(props: any) => {
                   return (
-                    <ViewReimbursementsPageC
+                    <EmpReimbursementsPageC
                       currUser={this.state.currUser}
                       {...props}
                     />
                   );
                 }}
               ></Route>
-              <Route
+              {/* <Route
                 path='/manager/employees'
                 render={(props: any) => {
                   return <UserContainerC {...props} />;
                 }}
               ></Route>
               <Route
-                path='/employee/reimbursements/submit'
+                path='/d/reimbursements/submit'
                 render={(props: any) => {
                   return (
                     <SubmitReimPageC
@@ -82,7 +87,7 @@ export class App extends React.Component<any, IAppState> {
                     />
                   );
                 }}
-              ></Route>
+              ></Route> */}
             </Switch>
           </Router>
         </Container>

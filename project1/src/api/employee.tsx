@@ -10,8 +10,6 @@ export async function getReimById(userId: number) {
     const response = await server.get(
       `/reimbursements/author/userId/${userId}`
     );
-    console.log('FROM API ROUTES: ', response);
-
     let fetchedArr = response.data.map((r: Reimbursement) => {
       return new Reimbursement(
         r.author,
@@ -25,7 +23,6 @@ export async function getReimById(userId: number) {
         r.resolver
       );
     });
-    console.log(fetchedArr);
     return fetchedArr;
   } catch (error) {
     console.error(error);
