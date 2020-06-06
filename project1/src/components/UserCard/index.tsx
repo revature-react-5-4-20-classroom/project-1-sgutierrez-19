@@ -5,7 +5,7 @@ import { User } from '../../model/user';
 import './style.css';
 
 interface IUserCardCProps {
-  user: User;
+  currUser: User;
 }
 
 export class UserCardC extends React.Component<IUserCardCProps, any> {
@@ -21,7 +21,7 @@ export class UserCardC extends React.Component<IUserCardCProps, any> {
               <Col md='12'>
                 <CardTitle>
                   <span className='card-desc'>User ID#</span>
-                  {this.props.user.id}
+                  {this.props.currUser.id}
                 </CardTitle>
               </Col>
             </Row>
@@ -30,7 +30,8 @@ export class UserCardC extends React.Component<IUserCardCProps, any> {
               <Col md='12'>
                 <CardText>
                   <span className='card-desc'>Employee:</span>{' '}
-                  {this.props.user.first_name} {this.props.user.last_name}
+                  {this.props.currUser.first_name}{' '}
+                  {this.props.currUser.last_name}
                 </CardText>
               </Col>
             </Row>
@@ -38,7 +39,7 @@ export class UserCardC extends React.Component<IUserCardCProps, any> {
               <Col md='12'>
                 <CardText>
                   <span className='card-desc'>Username:</span>{' '}
-                  {this.props.user.username}
+                  {this.props.currUser.username}
                 </CardText>
               </Col>
             </Row>
@@ -47,13 +48,13 @@ export class UserCardC extends React.Component<IUserCardCProps, any> {
               <Col md='6'>
                 <CardText>
                   <span className='card-desc'>Email:</span>{' '}
-                  {this.props.user.email}
+                  {this.props.currUser.email}
                 </CardText>
               </Col>
               <Col md='6'>
                 <CardText>
                   <span className='card-desc'>Role:</span>{' '}
-                  {this.props.user.role}
+                  {this.props.currUser.role}
                 </CardText>
               </Col>
             </Row>

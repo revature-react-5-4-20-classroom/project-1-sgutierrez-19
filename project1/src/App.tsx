@@ -7,6 +7,7 @@ import { LandingC } from './components/pages/Landing';
 import { Container } from 'reactstrap';
 import { EmpReimbursementsPageC } from './components/pages/EmpReimbursementsPage';
 import { HomeC } from './components/pages/Home';
+import { EmpUserPageC } from './components/pages/EmpUserPage';
 
 interface IAppState {
   currUser: User | null;
@@ -64,6 +65,15 @@ export class App extends React.Component<any, IAppState> {
                   );
                 }}
               ></Route>
+              <Route
+                path='/employee/profile'
+                render={(props: any) => {
+                  return (
+                    <EmpUserPageC currUser={this.state.currUser} {...props} />
+                  );
+                }}
+              ></Route>
+
               {/* <Route
                 path='/manager/employees'
                 render={(props: any) => {

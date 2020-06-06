@@ -32,7 +32,9 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      this.props.history.push('employee/reimbursements/submit');
+                      this.props.history.push(
+                        '/employee/reimbursements/submit'
+                      );
                     }}
                   >
                     Submit New Reimbursement
@@ -61,7 +63,7 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push(
-                        'employee/reimbursements/history'
+                        '/employee/reimbursements/history'
                       );
                     }}
                   >
@@ -80,7 +82,14 @@ export class HomeC extends React.Component<IHomeCProps, any> {
               </Row>
               <Row>
                 <Col xs={12}>
-                  <button>View Profile</button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push('/employee/profile/view');
+                    }}
+                  >
+                    View Profile
+                  </button>
                 </Col>
               </Row>
 
