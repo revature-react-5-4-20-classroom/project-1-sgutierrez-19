@@ -9,13 +9,24 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  NavItem,
 } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
+import { User } from '../../model/user';
+
+interface INavBarCompProps {
+  logoutUser: () => void;
+  currUser: User | null;
+}
 
 interface INavbarCompState {
   isOpen: boolean;
 }
-export class NavbarComp extends React.Component<any, INavbarCompState> {
-  constructor(props: any) {
+export class NavbarComp extends React.Component<
+  INavBarCompProps,
+  INavbarCompState
+> {
+  constructor(props: INavBarCompProps) {
     super(props);
     this.state = {
       isOpen: false,
@@ -80,7 +91,7 @@ export class NavbarComp extends React.Component<any, INavbarCompState> {
                 <DropdownToggle nav caret>
                   Reimbursements
                 </DropdownToggle>
-                <DropdownMenu left>
+                <DropdownMenu>
                   <DropdownItem>Submit New Reimbursement</DropdownItem>
                   <DropdownItem>View Pending Reimbursements</DropdownItem>
                   <DropdownItem>View Past Reimbursements</DropdownItem>
@@ -90,13 +101,23 @@ export class NavbarComp extends React.Component<any, INavbarCompState> {
                 <DropdownToggle nav caret>
                   My Profile
                 </DropdownToggle>
-                <DropdownMenu left>
+                <DropdownMenu>
                   <DropdownItem>View Profile</DropdownItem>
                   <DropdownItem>Update Profile</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
           </Collapse>
+          <NavItem>
+            <NavLink
+              onClick={this.props.logoutUser}
+              to='/logout'
+              className='nav-link'
+              activeClassName='active'
+            >
+              Logout
+            </NavLink>
+          </NavItem>
         </Navbar>
       </div>
     );
@@ -106,8 +127,7 @@ export class NavbarComp extends React.Component<any, INavbarCompState> {
     return (
       <div>
         <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/'>RMS</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarBrand href='/'>adfadfad</NavbarBrand>
         </Navbar>
       </div>
     );
@@ -124,6 +144,7 @@ export class NavbarComp extends React.Component<any, INavbarCompState> {
       return this.guestNav();
     }
   };
+
   render() {
     const renderedNavbar = this.whichNav();
     return <>{renderedNavbar}</>;

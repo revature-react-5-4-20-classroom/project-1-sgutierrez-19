@@ -52,13 +52,11 @@ export class SubmitReimPageC extends React.Component<
     let rAmount = +this.state.amount!;
     let rType = this.state.type;
     let rDescription = this.state.description;
-    console.log(rAmount, rType, rDescription);
     if (isNaN(rAmount) || rAmount < 0.01) {
       return alert('Amount must be a number.  Example: 19.99');
     }
     try {
       let makeReim = await createReim(rAmount, rDescription, rType);
-      console.log('makereim: ', makeReim);
       let r = makeReim.data;
       let newReim = new Reimbursement(
         r.author,

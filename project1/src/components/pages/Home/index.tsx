@@ -92,10 +92,16 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                   </button>
                 </Col>
               </Row>
-
               <Row>
                 <Col xs={12}>
-                  <button>Update Profile</button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push('/employee/profile/update');
+                    }}
+                  >
+                    Update Profile
+                  </button>
                 </Col>
               </Row>
             </div>

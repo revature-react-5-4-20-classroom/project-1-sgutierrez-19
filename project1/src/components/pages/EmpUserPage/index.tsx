@@ -5,6 +5,7 @@ import { Row, Col } from 'reactstrap';
 
 import './style.css';
 import { UserContainerC } from '../../UserContainer';
+import { UpdateProfileC } from '../../UpdateProfile';
 
 interface IEmpUserPageCProps {
   currUser: User;
@@ -63,14 +64,17 @@ export class EmpUserPageC extends React.Component<
                   return <UserContainerC currUser={this.props.currUser} />;
                 }}
               ></Route>
-              {/* <Route
+              <Route
                 path='/employee/profile/update'
                 render={(props: any) => {
                   return (
-                    
+                    <UpdateProfileC
+                      updateUser={this.props.updateUser}
+                      currUser={this.props.currUser}
+                    />
                   );
                 }}
-              ></Route> */}
+              ></Route>
             </Switch>
           </Col>
         </Row>

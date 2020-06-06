@@ -1,21 +1,18 @@
 import { server } from './server';
 
-export async function updateUser(
-  userToUpdate: number,
-  username?: string,
-  password?: string,
-  first_name?: string,
-  last_name?: string,
-  email?: string,
-  role?: number
-) {
-  return await server.patch(`/users`, {
-    userToUpdate: userToUpdate,
-    username: username,
-    password: password,
-    first_name: first_name,
-    last_name: last_name,
-    email: email,
-    role: role,
-  });
+export async function updateUser(objFromReact: any): Promise<any> {
+  let updateObj: any = {};
+  updateObj.userToUpdate = objFromReact.currUserId;
+  if (objFromReact.username) updateObj.username = objFromReact.username;
+  if (objFromReact.password) updateObj.password = objFromReact.password;
+  if (objFromReact.first_name) updateObj.first_name = objFromReact.first_name;
+  if (objFromReact.last_name) updateObj.last_name = objFromReact.last_name;
+  if (objFromReact.email) updateObj.email = objFromReact.email;
+  console.log('UPDATEOBJ FROM API', updateObj.userToUpdate);
+  try {
+    let response = await server.patch(`/users`, updateObj);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
