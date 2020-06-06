@@ -1,11 +1,11 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Col, Row } from 'reactstrap';
-import { createReim, getReimById } from '../../../api/employee';
-import { User } from '../../../model/user';
-import { ReimbursementCardC } from '../../ReimbursementCard';
+import { createReim } from '../../api/employee';
+import { User } from '../../model/user';
+import { ReimbursementCardC } from '../ReimbursementCard';
 
 import './style.css';
-import { Reimbursement } from '../../../model/reimbursement';
+import { Reimbursement } from '../../model/reimbursement';
 
 interface ISubmitReimPageCProps {
   currUser: User;

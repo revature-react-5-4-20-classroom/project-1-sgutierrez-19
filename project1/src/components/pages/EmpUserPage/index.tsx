@@ -67,6 +67,7 @@ export class EmpUserPageC extends React.Component<
                 path='/employee/profile/update'
                 render={(props: any) => {
                   return (
+                    
                   );
                 }}
               ></Route> */}

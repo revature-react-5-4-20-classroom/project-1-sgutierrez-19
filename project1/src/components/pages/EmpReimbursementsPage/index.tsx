@@ -7,7 +7,7 @@ import { ReimbursementContainerC } from '../../ReimbursementContainer';
 import { getReimById } from '../../../api/employee';
 import { Switch, Route } from 'react-router-dom';
 import { Reimbursement } from '../../../model/reimbursement';
-import { SubmitReimPageC } from '../SubmitReim';
+import { SubmitReimPageC } from '../../SubmitReim';
 
 interface IEmpReimbursementsPageProps {
   currUser: User | null;
