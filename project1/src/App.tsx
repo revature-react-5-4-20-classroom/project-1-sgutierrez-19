@@ -53,15 +53,8 @@ export class App extends React.Component<any, IAppState> {
                   return <HomeC {...props} currUser={this.state.currUser} />;
                 }}
               ></Route>
-
-              {/* <Route
-                path='/employee'
-                render={(props: any) => {
-                  return <HomeC {...props} currUser={this.state.currUser} />;
-                }}
-              ></Route> */}
               <Route
-                path='/home/employee/reimbursements'
+                path='/employee/reimbursements'
                 render={(props: any) => {
                   return (
                     <EmpReimbursementsPageC

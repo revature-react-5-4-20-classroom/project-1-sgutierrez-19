@@ -64,7 +64,7 @@ export class EmpReimbursementsPageC extends React.Component<
           <Col sm={{ size: 8, offset: 2 }}>
             <Switch>
               <Route
-                path='/home/employee/reimbursements/pending/'
+                path='/employee/reimbursements/pending'
                 render={(props: any) => {
                   return (
                     <ReimbursementContainerC
@@ -75,7 +75,7 @@ export class EmpReimbursementsPageC extends React.Component<
                 }}
               ></Route>
               <Route
-                path='/home/employee/reimbursements/history'
+                path='/employee/reimbursements/history'
                 render={(props: any) => {
                   return (
                     <ReimbursementContainerC
@@ -86,7 +86,7 @@ export class EmpReimbursementsPageC extends React.Component<
                 }}
               ></Route>
               <Route
-                path='/home/employee/reimbursements/submit'
+                path='/employee/reimbursements/submit'
                 render={(props: any) => {
                   return (
                     <SubmitReimPageC
