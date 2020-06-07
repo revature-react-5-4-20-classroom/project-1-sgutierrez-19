@@ -21,7 +21,7 @@ export class LandingC extends React.Component<ILandingCProps> {
       <>
         <Row className='h-100'>
           <Col md='8'>
-            <Jumbotron fluid>
+            <Jumbotron className='jumbo-div' fluid>
               <Container fluid>
                 <h1 className='display-3'>R.M.S.</h1>
                 <p className='lead'>
