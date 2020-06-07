@@ -80,6 +80,7 @@ export class ManReimbursementsPageC extends React.Component<
             render={(props: any) => {
               return (
                 <ManPenReimContainer
+                  getPastReims={this.getPastReims}
                   getPendingReims={this.getPendingReims}
                   reimbursements={this.state.pendingReims}
                   {...props}

@@ -10,6 +10,7 @@ import { updateReim } from '../../api/manager';
 interface IManPenReimContainerProps {
   reimbursements: Reimbursement[] | null;
   currUser: User;
+  getPastReims: () => void;
   getPendingReims: () => void;
   history: any;
   match: any;
@@ -28,12 +29,14 @@ export class ManPenReimContainer extends React.Component<
     e.preventDefault();
     await updateReim(e.currentTarget.value, 2);
     await this.props.getPendingReims();
+    await this.props.getPastReims();
   };
 
   denyReim = async (e: any) => {
     e.preventDefault();
     await updateReim(e.currentTarget.value, 3);
     await this.props.getPendingReims();
+    await this.props.getPastReims();
   };
 
   render() {
