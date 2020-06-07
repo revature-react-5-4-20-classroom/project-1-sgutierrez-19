@@ -12,9 +12,10 @@ interface ILandingCProps {
 }
 
 export class LandingC extends React.Component<ILandingCProps> {
-  constructor(props: ILandingCProps) {
-    super(props);
-  }
+  // commenting out due to chrome console warning: Useless constructor  @typescript-eslint/no-useless-constructor
+  // constructor(props: ILandingCProps) {
+  //   super(props);
+  // }
   render() {
     return (
       <>

@@ -9,9 +9,10 @@ interface IHomeCProps {
 }
 
 export class HomeC extends React.Component<IHomeCProps, any> {
-  constructor(props: IHomeCProps) {
-    super(props);
-  }
+  // commenting out due to chrome console warning: Useless constructor  @typescript-eslint/no-useless-constructor
+  // constructor(props: IHomeCProps) {
+  //   super(props);
+  // }
 
   empHome = () => {
     return (
@@ -130,7 +131,7 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      this.props.history.push('/employee/reimbursements/view');
+                      this.props.history.push('/manager/reimbursements/review');
                     }}
                   >
                     Review Open Reimbursements
@@ -140,13 +141,29 @@ export class HomeC extends React.Component<IHomeCProps, any> {
 
               <Row>
                 <Col xs={12}>
-                  <button>View Past Reimbursements</button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push(
+                        '/manager/reimbursements/history'
+                      );
+                    }}
+                  >
+                    View Past Reimbursements
+                  </button>
                 </Col>
               </Row>
 
               <Row>
                 <Col xs={12}>
-                  <button>Search By Employee</button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push('/manager/reimbursements/search');
+                    }}
+                  >
+                    Search By Employee
+                  </button>
                 </Col>
               </Row>
             </div>
@@ -162,7 +179,14 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                   </Row>
                   <Row>
                     <Col xs={12}>
-                      <button>View All Employees</button>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          this.props.history.push('/manager/employees');
+                        }}
+                      >
+                        View All Employees
+                      </button>
                     </Col>
                   </Row>
                 </div>
@@ -178,13 +202,27 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                   </Row>
                   <Row>
                     <Col xs={12}>
-                      <button>View Profile</button>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          this.props.history.push('/manager/profile/view');
+                        }}
+                      >
+                        View Profile
+                      </button>
                     </Col>
                   </Row>
 
                   <Row>
                     <Col xs={12}>
-                      <button>Update Profile</button>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          this.props.history.push('/manager/profile/update');
+                        }}
+                      >
+                        Update Profile
+                      </button>
                     </Col>
                   </Row>
                 </div>
@@ -198,7 +236,6 @@ export class HomeC extends React.Component<IHomeCProps, any> {
 
   whichHome = () => {
     const userRole = this.props.currUser && this.props.currUser.role;
-    console.log('HOMEPAGE: ', userRole);
     if (userRole === 'Employee') {
       return this.empHome();
     } else if (userRole === 'Finance Manager') {

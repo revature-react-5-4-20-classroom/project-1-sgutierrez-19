@@ -9,9 +9,10 @@ interface IUserContainerCProps {
 }
 
 export class UserContainerC extends React.Component<IUserContainerCProps, any> {
-  constructor(props: IUserContainerCProps) {
-    super(props);
-  }
+  // commenting out due to chrome console warning: Useless constructor  @typescript-eslint/no-useless-constructor
+  // constructor(props: IUserContainerCProps) {
+  //   super(props);
+  // }
 
   render() {
     return (

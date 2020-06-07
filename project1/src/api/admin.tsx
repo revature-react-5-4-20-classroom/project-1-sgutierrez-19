@@ -8,7 +8,6 @@ export async function updateUser(objFromReact: any): Promise<any> {
   if (objFromReact.first_name) updateObj.first_name = objFromReact.first_name;
   if (objFromReact.last_name) updateObj.last_name = objFromReact.last_name;
   if (objFromReact.email) updateObj.email = objFromReact.email;
-  console.log('UPDATEOBJ FROM API', updateObj.userToUpdate);
   try {
     let response = await server.patch(`/users`, updateObj);
     return response;

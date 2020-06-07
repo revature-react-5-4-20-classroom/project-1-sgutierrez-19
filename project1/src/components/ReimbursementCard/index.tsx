@@ -1,8 +1,17 @@
 import React from 'react';
-import { Card, CardText, CardBody, CardTitle, Row, Col } from 'reactstrap';
+import {
+  Card,
+  CardText,
+  CardBody,
+  CardTitle,
+  Row,
+  Col,
+  Button,
+} from 'reactstrap';
 import { Reimbursement } from '../../model/reimbursement';
 
 import './style.css';
+import { User } from '../../model/user';
 
 interface IReimbursementCardCProps {
   reimbursement: Reimbursement;
@@ -12,9 +21,10 @@ export class ReimbursementCardC extends React.Component<
   IReimbursementCardCProps,
   any
 > {
-  constructor(props: IReimbursementCardCProps) {
-    super(props);
-  }
+  // commenting out due to chrome console warning: Useless constructor  @typescript-eslint/no-useless-constructor
+  // constructor(props: IReimbursementCardCProps) {
+  //   super(props);
+  // }
   render() {
     return (
       <div>
@@ -45,6 +55,14 @@ export class ReimbursementCardC extends React.Component<
                 </CardText>
               </Col>
             </Row>
+            <Row>
+              <Col md='12'>
+                <CardTitle>
+                  <span className='card-desc'>Created By:</span>{' '}
+                  {this.props.reimbursement.author}
+                </CardTitle>
+              </Col>
+            </Row>
 
             <Row>
               <Col md='12'>
@@ -72,8 +90,6 @@ export class ReimbursementCardC extends React.Component<
                 </CardText>
               </Col>
             </Row>
-            <Row></Row>
-            {/* <Button>Button</Button> */}
           </CardBody>
         </Card>
       </div>

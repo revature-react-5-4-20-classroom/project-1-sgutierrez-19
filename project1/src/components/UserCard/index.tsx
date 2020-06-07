@@ -9,9 +9,10 @@ interface IUserCardCProps {
 }
 
 export class UserCardC extends React.Component<IUserCardCProps, any> {
-  constructor(props: IUserCardCProps) {
-    super(props);
-  }
+  // commenting out due to chrome console warning: Useless constructor  @typescript-eslint/no-useless-constructor
+  // constructor(props: IUserCardCProps) {
+  //   super(props);
+  // }
   render() {
     return (
       <div>

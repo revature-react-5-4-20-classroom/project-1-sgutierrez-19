@@ -49,7 +49,7 @@ export class NavbarComp extends React.Component<
                 <DropdownToggle nav caret>
                   Reimbursements
                 </DropdownToggle>
-                <DropdownMenu left>
+                <DropdownMenu>
                   <DropdownItem>Review Pending Reimbursements</DropdownItem>
                   <DropdownItem>View Past Reimbursements</DropdownItem>
                   <DropdownItem>Emp Reimbursement Search</DropdownItem>
@@ -59,7 +59,7 @@ export class NavbarComp extends React.Component<
                 <DropdownToggle nav caret>
                   Employees
                 </DropdownToggle>
-                <DropdownMenu left>
+                <DropdownMenu>
                   <DropdownItem>View All Employees</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -67,13 +67,23 @@ export class NavbarComp extends React.Component<
                 <DropdownToggle nav caret>
                   My Profile
                 </DropdownToggle>
-                <DropdownMenu left>
+                <DropdownMenu>
                   <DropdownItem>View Profile</DropdownItem>
                   <DropdownItem>Update Profile</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
           </Collapse>
+          <NavItem>
+            <NavLink
+              onClick={this.props.logoutUser}
+              to='/logout'
+              className='nav-link'
+              activeClassName='active'
+            >
+              Logout
+            </NavLink>
+          </NavItem>
         </Navbar>
       </div>
     );
@@ -127,7 +137,7 @@ export class NavbarComp extends React.Component<
     return (
       <div>
         <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/'>adfadfad</NavbarBrand>
+          <NavbarBrand href='/'>RMS</NavbarBrand>
         </Navbar>
       </div>
     );

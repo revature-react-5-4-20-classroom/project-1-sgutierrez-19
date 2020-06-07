@@ -1,5 +1,6 @@
 import { server } from './server';
 import { User } from '../model/user';
+import { Reimbursement } from '../model/reimbursement';
 
 export async function getAllUsers() {
   try {
@@ -21,19 +22,30 @@ export async function getAllUsers() {
 }
 
 export async function getReimByStatus(statusId: number) {
-  return await server.get(`/reimbursements/status/${statusId}`);
+  try {
+    const response = await server.get(`/reimbursements/status/${statusId}`);
+    let fetchedArr = response.data.map((r: Reimbursement) => {
+      return new Reimbursement(
+        r.author,
+        r.amount,
+        r.date_submitted,
+        r.description,
+        r.status,
+        r.type,
+        r.id,
+        r.date_resolved,
+        r.resolver
+      );
+    });
+    return fetchedArr;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-export async function updateReim(
-  reimToUpdate: number,
-  amount?: number,
-  description?: string,
-  type?: number
-) {
+export async function updateReim(reimID: number, newStatus: number) {
   return await server.patch(`/reimbursements`, {
-    reimToUpdate: reimToUpdate,
-    amount: amount,
-    description: description,
-    type: type,
+    reimToUpdate: reimID,
+    status: newStatus,
   });
 }

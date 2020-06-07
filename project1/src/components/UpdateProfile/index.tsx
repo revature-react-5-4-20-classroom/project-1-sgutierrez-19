@@ -1,10 +1,9 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Col, Row } from 'reactstrap';
 import { User } from '../../model/user';
-import { UserContainerC } from '../UserContainer';
+// import { UserContainerC } from '../UserContainer';
 
 import './style.css';
-import { stringify } from 'querystring';
 import { updateUser } from '../../api/admin';
 
 interface IUpdateProfileCProps {
