@@ -13,6 +13,8 @@ interface IManPenReimContainerProps {
   reimbursements: Reimbursement[] | null;
   currUser: User;
   getPendingReims: () => void;
+  history: any;
+  match: any;
 }
 
 export class ManPenReimContainer extends React.Component<
@@ -45,7 +47,11 @@ export class ManPenReimContainer extends React.Component<
               <>
                 <Row>
                   <Col xs={10}>
-                    <ReimbursementCardC key={r.id} reimbursement={r} />
+                    <ReimbursementCardC
+                      key={r.id}
+                      reimbursement={r}
+                      {...this.props}
+                    />
                   </Col>
                   <Col xs={2}>
                     <Button onClick={this.approveReim} value={r.id}>

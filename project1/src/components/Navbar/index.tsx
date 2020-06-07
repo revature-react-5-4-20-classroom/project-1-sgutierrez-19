@@ -41,7 +41,7 @@ export class NavbarComp extends React.Component<
     return (
       <div>
         <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/'>RMS</NavbarBrand>
+          <NavbarBrand href='/home'>RMS</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='mr-auto' navbar>
@@ -50,9 +50,27 @@ export class NavbarComp extends React.Component<
                   Reimbursements
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem>Review Pending Reimbursements</DropdownItem>
-                  <DropdownItem>View Past Reimbursements</DropdownItem>
-                  <DropdownItem>Emp Reimbursement Search</DropdownItem>
+                  <DropdownItem
+                    href='/manager/reimbursements/review'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    Review Pending Reimbursements
+                  </DropdownItem>
+                  <DropdownItem
+                    href='/manager/reimbursements/history'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    View Past Reimbursements
+                  </DropdownItem>
+                  <DropdownItem
+                    href='/manager/reimbursements/search'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    Emp Reimbursement Search
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav inNavbar>
@@ -60,7 +78,13 @@ export class NavbarComp extends React.Component<
                   Employees
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem>View All Employees</DropdownItem>
+                  <DropdownItem
+                    href='/manager/employees'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    View All Employees
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav inNavbar>
@@ -68,22 +92,32 @@ export class NavbarComp extends React.Component<
                   My Profile
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem>View Profile</DropdownItem>
-                  <DropdownItem>Update Profile</DropdownItem>
+                  <DropdownItem
+                    href='/manager/profile/view'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    View Profile
+                  </DropdownItem>
+                  <DropdownItem
+                    href='/manager/profile/update'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    Update Profile
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
           </Collapse>
-          <NavItem>
-            <NavLink
-              onClick={this.props.logoutUser}
-              to='/logout'
-              className='nav-link'
-              activeClassName='active'
-            >
-              Logout
-            </NavLink>
-          </NavItem>
+          <NavLink
+            onClick={this.props.logoutUser}
+            to='/logout'
+            className='nav-link'
+            activeClassName='active'
+          >
+            Logout
+          </NavLink>
         </Navbar>
       </div>
     );
@@ -93,7 +127,7 @@ export class NavbarComp extends React.Component<
     return (
       <div>
         <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/'>RMS</NavbarBrand>
+          <NavbarBrand href='/home'>RMS</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='mr-auto' navbar>
@@ -102,9 +136,27 @@ export class NavbarComp extends React.Component<
                   Reimbursements
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem>Submit New Reimbursement</DropdownItem>
-                  <DropdownItem>View Pending Reimbursements</DropdownItem>
-                  <DropdownItem>View Past Reimbursements</DropdownItem>
+                  <DropdownItem
+                    href='/employee/reimbursements/sub'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    Submit New Reimbursement
+                  </DropdownItem>
+                  <DropdownItem
+                    href='/employee/reimbursements/pending'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    View Pending Reimbursements
+                  </DropdownItem>
+                  <DropdownItem
+                    href='/employee/reimbursements/history'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    View Past Reimbursements
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav inNavbar>
@@ -112,22 +164,32 @@ export class NavbarComp extends React.Component<
                   My Profile
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem>View Profile</DropdownItem>
-                  <DropdownItem>Update Profile</DropdownItem>
+                  <DropdownItem
+                    href='/employee/profile/view'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    View Profile
+                  </DropdownItem>
+                  <DropdownItem
+                    href='/employee/profile/update'
+                    className='nav-link'
+                    activeClassName='active'
+                  >
+                    Update Profile
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
           </Collapse>
-          <NavItem>
-            <NavLink
-              onClick={this.props.logoutUser}
-              to='/logout'
-              className='nav-link'
-              activeClassName='active'
-            >
-              Logout
-            </NavLink>
-          </NavItem>
+          <NavLink
+            onClick={this.props.logoutUser}
+            to='/logout'
+            className='nav-link'
+            activeClassName='active'
+          >
+            Logout
+          </NavLink>
         </Navbar>
       </div>
     );
@@ -137,7 +199,7 @@ export class NavbarComp extends React.Component<
     return (
       <div>
         <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/'>RMS</NavbarBrand>
+          <NavbarBrand href='/landing'>RMS</NavbarBrand>
         </Navbar>
       </div>
     );

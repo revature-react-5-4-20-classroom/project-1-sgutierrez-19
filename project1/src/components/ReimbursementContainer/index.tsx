@@ -9,16 +9,17 @@ import { Row, Col, Button } from 'reactstrap';
 interface IReimbursementContainerCProps {
   reimbursements: Reimbursement[] | null;
   currUser: User;
+  history: any;
+  match: any;
 }
 
 export class ReimbursementContainerC extends React.Component<
   IReimbursementContainerCProps,
   any
 > {
-  // commenting out due to chrome console warning: Useless constructor  @typescript-eslint/no-useless-constructor
-  // constructor(props: IReimbursementContainerCProps) {
-  //   super(props);
-  // }
+  constructor(props: IReimbursementContainerCProps) {
+    super(props);
+  }
 
   render() {
     return (

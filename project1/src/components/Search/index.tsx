@@ -7,6 +7,8 @@ import { getReimById } from '../../api/employee';
 
 interface ISearchCProps {
   currUser: User;
+  history: any;
+  match: any;
 }
 
 interface ISearchCState {
@@ -69,6 +71,7 @@ export class SearchC extends React.Component<ISearchCProps, ISearchCState> {
             <ReimbursementContainerC
               reimbursements={this.state.reimbursements}
               currUser={this.props.currUser}
+              {...this.props}
             />
           </Col>
         </Row>

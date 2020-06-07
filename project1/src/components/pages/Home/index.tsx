@@ -53,7 +53,7 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                       );
                     }}
                   >
-                    View Open Reimbursements
+                    View Pending Reimbursements
                   </button>
                 </Col>
               </Row>
@@ -134,7 +134,7 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                       this.props.history.push('/manager/reimbursements/review');
                     }}
                   >
-                    Review Open Reimbursements
+                    Review Pending Reimbursements
                   </button>
                 </Col>
               </Row>
