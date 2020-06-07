@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Col, Row } from 'reactstrap';
 import { User } from '../../model/user';
-// import { UserContainerC } from '../UserContainer';
 
 import './style.css';
 import { updateUser } from '../../api/admin';
@@ -9,6 +8,8 @@ import { updateUser } from '../../api/admin';
 interface IUpdateProfileCProps {
   currUser: User;
   updateUser: (user: User) => void;
+  history: any;
+  match: any;
 }
 
 interface IUpdateProfileCState {
@@ -83,48 +84,29 @@ export class UpdateProfileC extends React.Component<
         r.role
       );
       this.props.updateUser(updateUserObj);
+      if (this.props.currUser.role === 'Employee') {
+        this.props.history.push('/employee/profile/view');
+      } else if (this.props.currUser.role === 'Finance Manager') {
+        this.props.history.push('/manager/profile/view');
+      } else {
+        this.props.history.push('/');
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
-  //   submitReim = async (e: any) => {
-  //     e.preventDefault();
-  //     let rAmount = +this.state.amount!;
-  //     let rType = this.state.type;
-  //     let rDescription = this.state.description;
-  //     console.log(rAmount, rType, rDescription);
-  //     if (isNaN(rAmount) || rAmount < 0.01) {
-  //       return alert('Amount must be a number.  Example: 19.99');
-  //     }
-  //     try {
-  //       let makeReim = await createReim(rAmount, rDescription, rType);
-  //       console.log('makereim: ', makeReim);
-  //       let r = makeReim.data;
-  //       let newReim = new Reimbursement(
-  //         r.author,
-  //         r.amount,
-  //         r.date_submitted,
-  //         r.description,
-  //         r.status,
-  //         r.type,
-  //         r.id
-  //       );
-  //       this.setState({ reimbursement: newReim });
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
   render() {
     return (
       <>
         <Row>
-          <Col xs={12}>
-            <Form onSubmit={this.updateProfile}>
+          <Col xs={6} className='offset-3'>
+            <Form className='input-form' onSubmit={this.updateProfile}>
+              <Label className='input-form-label'>Update Your Profile</Label>
               <FormGroup>
                 <Label for='firstName'>First Name:</Label>
                 <Input
+                  placeholder={this.props.currUser.first_name}
                   type='text'
                   name='firstName'
                   id='first-name'
@@ -135,6 +117,7 @@ export class UpdateProfileC extends React.Component<
               <FormGroup>
                 <Label for='lastName'>Last Name:</Label>
                 <Input
+                  placeholder={this.props.currUser.last_name}
                   type='text'
                   name='lastName'
                   id='last-name'
@@ -145,6 +128,7 @@ export class UpdateProfileC extends React.Component<
               <FormGroup>
                 <Label for='username'>Username:</Label>
                 <Input
+                  placeholder={this.props.currUser.username}
                   type='text'
                   name='username'
                   id='username'
@@ -155,6 +139,7 @@ export class UpdateProfileC extends React.Component<
               <FormGroup>
                 <Label for='email'>E-mail:</Label>
                 <Input
+                  placeholder={this.props.currUser.email}
                   type='text'
                   name='email'
                   id='email'

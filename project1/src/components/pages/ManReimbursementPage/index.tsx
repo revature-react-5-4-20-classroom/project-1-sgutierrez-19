@@ -83,55 +83,51 @@ export class ManReimbursementsPageC extends React.Component<
   render() {
     return (
       <>
-        <Row className='h-100'>
-          <Col sm={{ size: 8, offset: 2 }}>
-            <Switch>
-              <Route
-                path='/manager/reimbursements/review'
-                render={(props: any) => {
-                  return (
-                    <ManPenReimContainer
-                      getPendingReims={this.getPendingReims}
-                      reimbursements={this.state.pendingReims}
-                      {...props}
-                    />
-                  );
-                }}
-              ></Route>
-              <Route
-                path='/manager/reimbursements/history'
-                render={(props: any) => {
-                  return (
-                    <>
-                      <Row>
-                        <Col xs={6}>
-                          <h1>Approved</h1>
-                          <ReimbursementContainerC
-                            reimbursements={this.state.appReims}
-                            {...props}
-                          />
-                        </Col>
-                        <Col xs={6}>
-                          <h1>Denied</h1>
-                          <ReimbursementContainerC
-                            reimbursements={this.state.denReims}
-                            {...props}
-                          />
-                        </Col>
-                      </Row>
-                    </>
-                  );
-                }}
-              ></Route>
-              <Route
-                path='/manager/reimbursements/search'
-                render={(props: any) => {
-                  return <SearchC currUser={this.props.currUser} {...props} />;
-                }}
-              ></Route>
-            </Switch>
-          </Col>
-        </Row>
+        <Switch>
+          <Route
+            path='/manager/reimbursements/review'
+            render={(props: any) => {
+              return (
+                <ManPenReimContainer
+                  getPendingReims={this.getPendingReims}
+                  reimbursements={this.state.pendingReims}
+                  {...props}
+                />
+              );
+            }}
+          ></Route>
+          <Route
+            path='/manager/reimbursements/history'
+            render={(props: any) => {
+              return (
+                <>
+                  <Row>
+                    <Col xs={6}>
+                      <h1>Approved</h1>
+                      <ReimbursementContainerC
+                        reimbursements={this.state.appReims}
+                        {...props}
+                      />
+                    </Col>
+                    <Col xs={6}>
+                      <h1>Denied</h1>
+                      <ReimbursementContainerC
+                        reimbursements={this.state.denReims}
+                        {...props}
+                      />
+                    </Col>
+                  </Row>
+                </>
+              );
+            }}
+          ></Route>
+          <Route
+            path='/manager/reimbursements/search'
+            render={(props: any) => {
+              return <SearchC currUser={this.props.currUser} {...props} />;
+            }}
+          ></Route>
+        </Switch>
       </>
     );
   }

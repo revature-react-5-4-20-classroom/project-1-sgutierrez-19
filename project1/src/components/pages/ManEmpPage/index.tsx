@@ -1,6 +1,5 @@
 import React from 'react';
 import { User } from '../../../model/user';
-import { Row, Col } from 'reactstrap';
 import { getAllUsers } from '../../../api/manager';
 import './style.css';
 import { AllUsersContainerC } from '../../AllUsersContainer';
@@ -32,14 +31,6 @@ export class ManEmployeePageC extends React.Component<
   };
 
   render() {
-    return (
-      <>
-        <Row className='h-100'>
-          <Col sm={{ size: 8, offset: 2 }}>
-            <AllUsersContainerC allUsers={this.state.allUsers} />
-          </Col>
-        </Row>
-      </>
-    );
+    return <AllUsersContainerC allUsers={this.state.allUsers} />;
   }
 }

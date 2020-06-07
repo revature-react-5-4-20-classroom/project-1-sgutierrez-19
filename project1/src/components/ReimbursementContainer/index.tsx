@@ -4,7 +4,7 @@ import { ReimbursementCardC } from '../ReimbursementCard';
 
 import './style.css';
 import { User } from '../../model/user';
-import { Row, Col, Button } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 interface IReimbursementContainerCProps {
   reimbursements: Reimbursement[] | null;
@@ -23,16 +23,20 @@ export class ReimbursementContainerC extends React.Component<
 
   render() {
     return (
-      <>
-        {this.props.reimbursements &&
-          this.props.reimbursements.map((r) => {
-            return (
-              <>
-                <ReimbursementCardC key={r.id} reimbursement={r} />
-              </>
-            );
-          })}
-      </>
+      <Row>
+        <Col xs={6} className='offset-3'>
+          <div className='reim-div'>
+            {this.props.reimbursements &&
+              this.props.reimbursements.map((r) => {
+                return (
+                  <>
+                    <ReimbursementCardC key={r.id} reimbursement={r} />
+                  </>
+                );
+              })}
+          </div>
+        </Col>
+      </Row>
     );
   }
 }

@@ -1,6 +1,14 @@
 import React from 'react';
 import { User } from '../../../model/user';
-import { Row, Col } from 'reactstrap';
+import {
+  Row,
+  Col,
+  Card,
+  Button,
+  CardBody,
+  CardTitle,
+  CardText,
+} from 'reactstrap';
 
 interface IHomeCProps {
   currUser: User | null;
@@ -19,15 +27,13 @@ export class HomeC extends React.Component<IHomeCProps, any> {
       <>
         <Row>
           <Col xs={6}>
-            <div>
-              <Row>
-                <Col xs={12}>
+            <Card>
+              <CardBody>
+                <CardTitle>
                   <h3>Reimbursements</h3>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <button
+                </CardTitle>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push(
@@ -36,13 +42,10 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                     }}
                   >
                     Submit New Reimbursement
-                  </button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push(
@@ -51,13 +54,10 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                     }}
                   >
                     View Pending Reimbursements
-                  </button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push(
@@ -66,43 +66,39 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                     }}
                   >
                     View Past Reimbursements
-                  </button>
-                </Col>
-              </Row>
-            </div>
+                  </Button>
+                </CardText>
+              </CardBody>
+            </Card>
           </Col>
           <Col xs={6}>
-            <div>
-              <Row>
-                <Col xs={12}>
+            <Card>
+              <CardBody>
+                <CardTitle>
                   <h3>Profile</h3>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <button
+                </CardTitle>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push('/employee/profile/view');
                     }}
                   >
                     View Profile
-                  </button>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <button
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push('/employee/profile/update');
                     }}
                   >
                     Update Profile
-                  </button>
-                </Col>
-              </Row>
-            </div>
+                  </Button>
+                </CardText>
+              </CardBody>
+            </Card>
           </Col>
         </Row>
       </>
@@ -114,28 +110,23 @@ export class HomeC extends React.Component<IHomeCProps, any> {
       <>
         <Row>
           <Col xs={6}>
-            <div>
-              <Row>
-                <Col xs={12}>
+            <Card>
+              <CardBody>
+                <CardTitle>
                   <h3>Reimbursements</h3>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <button
+                </CardTitle>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push('/manager/reimbursements/review');
                     }}
                   >
                     Review Pending Reimbursements
-                  </button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push(
@@ -144,82 +135,72 @@ export class HomeC extends React.Component<IHomeCProps, any> {
                     }}
                   >
                     View Past Reimbursements
-                  </button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push('/manager/reimbursements/search');
                     }}
                   >
                     Search By Employee
-                  </button>
-                </Col>
-              </Row>
-            </div>
+                  </Button>
+                </CardText>
+              </CardBody>
+            </Card>
           </Col>
           <Col xs={6}>
             <Row>
               <Col xs={12}>
-                <div>
-                  <Row>
-                    <Col xs={12}>
+                <Card>
+                  <CardBody>
+                    <CardTitle>
                       <h3>Employees</h3>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col xs={12}>
-                      <button
+                    </CardTitle>
+                    <CardText>
+                      <Button
                         onClick={(e) => {
                           e.preventDefault();
                           this.props.history.push('/manager/employees');
                         }}
                       >
                         View All Employees
-                      </button>
-                    </Col>
-                  </Row>
-                </div>
+                      </Button>
+                    </CardText>
+                  </CardBody>
+                </Card>
               </Col>
             </Row>
             <Row>
               <Col xs={12}>
-                <div>
-                  <Row>
-                    <Col xs={12}>
+                <Card>
+                  <CardBody>
+                    <CardTitle>
                       <h3>Profile</h3>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col xs={12}>
-                      <button
+                    </CardTitle>
+                    <CardText>
+                      <Button
                         onClick={(e) => {
                           e.preventDefault();
                           this.props.history.push('/manager/profile/view');
                         }}
                       >
                         View Profile
-                      </button>
-                    </Col>
-                  </Row>
-
-                  <Row>
-                    <Col xs={12}>
-                      <button
+                      </Button>
+                    </CardText>
+                    <CardText>
+                      <Button
                         onClick={(e) => {
                           e.preventDefault();
                           this.props.history.push('/manager/profile/update');
                         }}
                       >
                         Update Profile
-                      </button>
-                    </Col>
-                  </Row>
-                </div>
+                      </Button>
+                    </CardText>
+                  </CardBody>
+                </Card>
               </Col>
             </Row>
           </Col>

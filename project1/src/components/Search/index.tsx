@@ -1,9 +1,21 @@
 import React from 'react';
-import { Form, FormGroup, Input, Label, Button, Row, Col } from 'reactstrap';
+import {
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Button,
+  Row,
+  Col,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+} from 'reactstrap';
 import { ReimbursementContainerC } from '../ReimbursementContainer';
 import { User } from '../../model/user';
 import { Reimbursement } from '../../model/reimbursement';
 import { getReimById } from '../../api/employee';
+import './style.css';
 
 interface ISearchCProps {
   currUser: User;
@@ -50,31 +62,34 @@ export class SearchC extends React.Component<ISearchCProps, ISearchCState> {
           <Col xs={{ size: 6, offset: 3 }}>
             <Form inline onSubmit={this.searchReims}>
               <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-                <Label for='searchByID' className='mr-sm-2'>
-                  Search Reimbursements by Employee ID:{' '}
-                </Label>
-                <Input
-                  type='text'
-                  name='searchByID'
-                  id='searchByID'
-                  placeholder='Employee #'
-                  onChange={this.setId}
-                  value={this.state.searchId}
-                />
+                <InputGroup>
+                  <InputGroupAddon addonType='prepend'>
+                    <InputGroupText>
+                      Search Reimbursements by Employee ID:{' '}
+                    </InputGroupText>
+                  </InputGroupAddon>
+
+                  <Input
+                    type='text'
+                    name='searchByID'
+                    id='searchByID'
+                    placeholder='Employee #'
+                    onChange={this.setId}
+                    value={this.state.searchId}
+                  />
+                  <InputGroupAddon addonType='append'>
+                    <Button color='primary'>Search</Button>
+                  </InputGroupAddon>
+                </InputGroup>
               </FormGroup>
-              <Button>Search</Button>
             </Form>
           </Col>
         </Row>
-        <Row>
-          <Col xs={12}>
-            <ReimbursementContainerC
-              reimbursements={this.state.reimbursements}
-              currUser={this.props.currUser}
-              {...this.props}
-            />
-          </Col>
-        </Row>
+        <ReimbursementContainerC
+          reimbursements={this.state.reimbursements}
+          currUser={this.props.currUser}
+          {...this.props}
+        />
       </>
     );
   }

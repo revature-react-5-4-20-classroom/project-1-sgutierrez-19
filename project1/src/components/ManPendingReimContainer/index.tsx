@@ -5,8 +5,6 @@ import { ReimbursementCardC } from '../ReimbursementCard';
 import './style.css';
 import { User } from '../../model/user';
 import { Row, Col, Button } from 'reactstrap';
-import { EPERM } from 'constants';
-import { updateUser } from '../../api/admin';
 import { updateReim } from '../../api/manager';
 
 interface IManPenReimContainerProps {
@@ -40,32 +38,47 @@ export class ManPenReimContainer extends React.Component<
 
   render() {
     return (
-      <>
-        {this.props.reimbursements &&
-          this.props.reimbursements.map((r) => {
-            return (
-              <>
-                <Row>
-                  <Col xs={10}>
+      <Row>
+        <Col xs={6} className='offset-3'>
+          <h3 className='reim-notification'>
+            Employees' Reimbursement History
+          </h3>
+          <div className='pending-div'>
+            {this.props.reimbursements &&
+              this.props.reimbursements.map((r) => {
+                return (
+                  <>
                     <ReimbursementCardC
                       key={r.id}
                       reimbursement={r}
                       {...this.props}
                     />
-                  </Col>
-                  <Col xs={2}>
-                    <Button onClick={this.approveReim} value={r.id}>
-                      Approve
-                    </Button>
-                    <Button onClick={this.denyReim} value={r.id}>
-                      Deny
-                    </Button>
-                  </Col>
-                </Row>
-              </>
-            );
-          })}
-      </>
+                    <Row>
+                      <Col xs={6}>
+                        <Button
+                          color='success'
+                          onClick={this.approveReim}
+                          value={r.id}
+                        >
+                          Approve
+                        </Button>
+                      </Col>
+                      <Col xs={6}>
+                        <Button
+                          color='danger'
+                          onClick={this.denyReim}
+                          value={r.id}
+                        >
+                          Deny
+                        </Button>
+                      </Col>
+                    </Row>
+                  </>
+                );
+              })}
+          </div>
+        </Col>
+      </Row>
     );
   }
 }

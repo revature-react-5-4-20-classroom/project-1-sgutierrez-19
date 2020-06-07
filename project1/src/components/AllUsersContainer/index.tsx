@@ -3,6 +3,7 @@ import { UserCardC } from '../UserCard';
 
 import './style.css';
 import { User } from '../../model/user';
+import { Row, Col } from 'reactstrap';
 
 interface IAllUsersContainerCProps {
   allUsers: User[] | null;
@@ -20,10 +21,16 @@ export class AllUsersContainerC extends React.Component<
   render() {
     return (
       <>
-        {this.props.allUsers &&
-          this.props.allUsers.map((u) => {
-            return <UserCardC key={u.id} currUser={u} />;
-          })}
+        <Row>
+          <Col xs={6} className='offset-3'>
+            <div className='user-div'>
+              {this.props.allUsers &&
+                this.props.allUsers.map((u) => {
+                  return <UserCardC key={u.id} currUser={u} />;
+                })}
+            </div>
+          </Col>
+        </Row>
       </>
     );
   }

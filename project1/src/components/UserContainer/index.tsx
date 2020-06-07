@@ -3,6 +3,7 @@ import { UserCardC } from '../UserCard';
 
 import './style.css';
 import { User } from '../../model/user';
+import { Row, Col } from 'reactstrap';
 
 interface IUserContainerCProps {
   currUser: User;
@@ -16,9 +17,13 @@ export class UserContainerC extends React.Component<IUserContainerCProps, any> {
 
   render() {
     return (
-      <>
-        <UserCardC currUser={this.props.currUser} />
-      </>
+      <Row>
+        <Col xs={6} className='offset-3'>
+          <div className='user-div'>
+            <UserCardC currUser={this.props.currUser} />
+          </div>
+        </Col>
+      </Row>
     );
   }
 }
