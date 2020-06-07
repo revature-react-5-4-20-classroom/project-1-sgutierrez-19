@@ -20,6 +20,7 @@ import { Reimbursement } from '../../model/reimbursement';
 
 interface ISubmitReimPageCProps {
   currUser: User;
+  getReimbursements: () => void;
 }
 
 interface ISubmitReimPageCState {
@@ -79,6 +80,7 @@ export class SubmitReimPageC extends React.Component<
         r.id
       );
       this.setState({ reimbursement: newReim });
+      await this.props.getReimbursements();
     } catch (error) {
       console.error(error);
     }
