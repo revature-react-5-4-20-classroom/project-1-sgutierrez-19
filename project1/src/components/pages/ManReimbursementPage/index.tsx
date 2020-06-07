@@ -10,9 +10,10 @@ import { Reimbursement } from '../../../model/reimbursement';
 import { SubmitReimPageC } from '../../SubmitReim';
 import { getReimByStatus } from '../../../api/manager';
 import { ManPenReimContainer } from '../../ManPendingReimContainer';
+import { SearchC } from '../../Search';
 
 interface IManReimbursementsPageProps {
-  // currUser: User | null;
+  currUser: User | null;
   // updateUser: (user: User) => void;
   history: any;
   match: any;
@@ -122,17 +123,12 @@ export class ManReimbursementsPageC extends React.Component<
                   );
                 }}
               ></Route>
-              {/* <Route
+              <Route
                 path='/manager/reimbursements/search'
                 render={(props: any) => {
-                  return (
-                    <SubmitReimPageC
-                      currUser={this.props.currUser}
-                      {...props}
-                    />
-                  );
+                  return <SearchC currUser={this.props.currUser} {...props} />;
                 }}
-              ></Route> */}
+              ></Route>
             </Switch>
           </Col>
         </Row>

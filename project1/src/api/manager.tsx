@@ -44,8 +44,12 @@ export async function getReimByStatus(statusId: number) {
 }
 
 export async function updateReim(reimID: number, newStatus: number) {
-  return await server.patch(`/reimbursements`, {
-    reimToUpdate: reimID,
-    status: newStatus,
-  });
+  try {
+    return await server.patch(`/reimbursements`, {
+      reimToUpdate: reimID,
+      status: newStatus,
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
