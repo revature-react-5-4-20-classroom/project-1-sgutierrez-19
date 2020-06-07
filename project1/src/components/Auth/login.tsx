@@ -2,6 +2,7 @@ import React from 'react';
 import { User } from '../../model/user';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { login } from '../../api/auth';
+import './style.css';
 
 interface ILoginCProps {
   updateUser: (user: User) => void;
@@ -69,7 +70,7 @@ export class LoginC extends React.Component<ILoginCProps, ILoginCState> {
 
   render() {
     return (
-      <Form onSubmit={this.tryLogin}>
+      <Form className='login-form' onSubmit={this.tryLogin}>
         <FormGroup>
           <Label for='username'>Username</Label>
           <Input

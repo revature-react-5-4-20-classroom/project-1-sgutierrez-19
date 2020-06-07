@@ -43,15 +43,6 @@ export class ManReimbursementsPageC extends React.Component<
     await this.getPastReims();
   }
 
-  componentDidUpdate() {
-    console.log(
-      'From ManReimPageState - pendingReims: ',
-      this.state.pendingReims
-    );
-    console.log('From ManReimPageState - appReims: ', this.state.appReims);
-    console.log('From ManReimPageState - denReims: ', this.state.denReims);
-  }
-
   getPendingReims = async () => {
     try {
       // const userId: any = this.props.currUser?.id;
@@ -89,6 +80,7 @@ export class ManReimbursementsPageC extends React.Component<
             render={(props: any) => {
               return (
                 <ManPenReimContainer
+                  getPastReims={this.getPastReims}
                   getPendingReims={this.getPendingReims}
                   reimbursements={this.state.pendingReims}
                   {...props}

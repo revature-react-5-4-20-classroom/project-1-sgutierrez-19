@@ -38,6 +38,7 @@ export class EmpReimbursementsPageC extends React.Component<
 
   getReimbursements = async () => {
     try {
+      console.log('getting reims');
       const userId: any = this.props.currUser?.id;
       const reimArray: any = await getReimById(userId);
       const pending = reimArray.filter((r: any) => {
@@ -86,7 +87,11 @@ export class EmpReimbursementsPageC extends React.Component<
             path='/employee/reimbursements/submit'
             render={(props: any) => {
               return (
-                <SubmitReimPageC currUser={this.props.currUser} {...props} />
+                <SubmitReimPageC
+                  getReimbursements={this.getReimbursements}
+                  currUser={this.props.currUser}
+                  {...props}
+                />
               );
             }}
           ></Route>
