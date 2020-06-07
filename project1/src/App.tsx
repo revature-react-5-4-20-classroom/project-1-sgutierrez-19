@@ -10,6 +10,7 @@ import { HomeC } from './components/pages/Home';
 import { EmpUserPageC } from './components/pages/EmpUserPage';
 import { logout } from './api/auth';
 import { ManReimbursementsPageC } from './components/pages/ManReimbursementPage';
+import { ManUserPageC } from './components/pages/ManUserPage';
 
 // interface IAppState {
 //   currUser: User | null;
@@ -105,6 +106,18 @@ export class App extends React.Component<any, any> {
                 render={(props: any) => {
                   return (
                     <ManReimbursementsPageC
+                      currUser={this.state.currUser}
+                      {...props}
+                    />
+                  );
+                }}
+              ></Route>
+              <Route
+                path='/manager/profile'
+                render={(props: any) => {
+                  return (
+                    <ManUserPageC
+                      updateUser={this.updateUser}
                       currUser={this.state.currUser}
                       {...props}
                     />

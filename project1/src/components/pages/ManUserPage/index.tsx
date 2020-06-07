@@ -7,22 +7,22 @@ import './style.css';
 import { UserContainerC } from '../../UserContainer';
 import { UpdateProfileC } from '../../UpdateProfile';
 
-interface IEmpUserPageCProps {
+interface IManUserPageCProps {
   currUser: User;
   updateUser: (user: User) => void;
   history: any;
   match: any;
 }
 
-interface IEmpUserPageCState {
+interface IManUserPageCState {
   users: User[] | null;
 }
 
-export class EmpUserPageC extends React.Component<
-  IEmpUserPageCProps,
-  IEmpUserPageCState
+export class ManUserPageC extends React.Component<
+  IManUserPageCProps,
+  IManUserPageCState
 > {
-  constructor(props: IEmpUserPageCProps) {
+  constructor(props: IManUserPageCProps) {
     super(props);
     this.state = {
       users: null,
@@ -36,7 +36,7 @@ export class EmpUserPageC extends React.Component<
           <Col sm={{ size: 8, offset: 2 }}>
             <Switch>
               <Route
-                path='/employee/profile/view'
+                path='/manager/profile/view'
                 render={(props: any) => {
                   return (
                     <UserContainerC currUser={this.props.currUser} {...props} />
@@ -44,7 +44,7 @@ export class EmpUserPageC extends React.Component<
                 }}
               ></Route>
               <Route
-                path='/employee/profile/update'
+                path='/manager/profile/update'
                 render={(props: any) => {
                   return (
                     <UpdateProfileC
