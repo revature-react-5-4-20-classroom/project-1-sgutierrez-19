@@ -1,7 +1,7 @@
 import React from 'react';
 import { User } from '../../../model/user';
 import { LoginC } from '../../Auth/login';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Jumbotron, Container } from 'reactstrap';
 
 import './style.css';
 
@@ -20,10 +20,18 @@ export class LandingC extends React.Component<ILandingCProps> {
     return (
       <>
         <Row className='h-100'>
-          <Col m='8'>
-            <Row></Row>
+          <Col md='8'>
+            <Jumbotron fluid>
+              <Container fluid>
+                <h1 className='display-3'>R.M.S.</h1>
+                <p className='lead'>
+                  Your own system for managing your company's reimbursement
+                  requests.
+                </p>
+              </Container>
+            </Jumbotron>
           </Col>
-          <Col id='login-panel' m='4'>
+          <Col id='login-panel' md='4'>
             <Row>
               <Col xs='12'>
                 <LoginC

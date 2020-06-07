@@ -8,10 +8,9 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
   NavItem,
 } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { User } from '../../model/user';
 
 interface INavBarCompProps {
@@ -40,8 +39,10 @@ export class NavbarComp extends React.Component<
   fManNav = () => {
     return (
       <div>
-        <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/home'>RMS</NavbarBrand>
+        <Navbar color='dark' dark expand='md'>
+          <Link className='navbar-brand' to='/'>
+            RMS
+          </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='mr-auto' navbar>
@@ -50,27 +51,24 @@ export class NavbarComp extends React.Component<
                   Reimbursements
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem
-                    href='/manager/reimbursements/review'
-                    className='nav-link'
-                    activeClassName='active'
+                  <Link
+                    to='/manager/reimbursements/review'
+                    className='nav-link dark-text'
                   >
                     Review Pending Reimbursements
-                  </DropdownItem>
-                  <DropdownItem
-                    href='/manager/reimbursements/history'
-                    className='nav-link'
-                    activeClassName='active'
+                  </Link>
+                  <Link
+                    to='/manager/reimbursements/history'
+                    className='nav-link dark-text'
                   >
                     View Past Reimbursements
-                  </DropdownItem>
-                  <DropdownItem
-                    href='/manager/reimbursements/search'
-                    className='nav-link'
-                    activeClassName='active'
+                  </Link>
+                  <Link
+                    to='/manager/reimbursements/search'
+                    className='nav-link dark-text'
                   >
                     Emp Reimbursement Search
-                  </DropdownItem>
+                  </Link>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav inNavbar>
@@ -78,13 +76,9 @@ export class NavbarComp extends React.Component<
                   Employees
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem
-                    href='/manager/employees'
-                    className='nav-link'
-                    activeClassName='active'
-                  >
+                  <Link to='/manager/employees' className='nav-link dark-text'>
                     View All Employees
-                  </DropdownItem>
+                  </Link>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav inNavbar>
@@ -92,20 +86,18 @@ export class NavbarComp extends React.Component<
                   My Profile
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem
-                    href='/manager/profile/view'
-                    className='nav-link'
-                    activeClassName='active'
+                  <Link
+                    to='/manager/profile/view'
+                    className='nav-link dark-text'
                   >
                     View Profile
-                  </DropdownItem>
-                  <DropdownItem
-                    href='/manager/profile/update'
-                    className='nav-link'
-                    activeClassName='active'
+                  </Link>
+                  <Link
+                    to='/manager/profile/update'
+                    className='nav-link dark-text'
                   >
                     Update Profile
-                  </DropdownItem>
+                  </Link>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
@@ -113,7 +105,7 @@ export class NavbarComp extends React.Component<
           <NavLink
             onClick={this.props.logoutUser}
             to='/logout'
-            className='nav-link'
+            className='nav-link light-text'
             activeClassName='active'
           >
             Logout
@@ -126,8 +118,10 @@ export class NavbarComp extends React.Component<
   empNav = () => {
     return (
       <div>
-        <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/home'>RMS</NavbarBrand>
+        <Navbar color='dark' dark expand='md'>
+          <Link className='navbar-brand' to='/'>
+            RMS
+          </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='mr-auto' navbar>
@@ -136,27 +130,24 @@ export class NavbarComp extends React.Component<
                   Reimbursements
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem
-                    href='/employee/reimbursements/sub'
-                    className='nav-link'
-                    activeClassName='active'
+                  <Link
+                    to='/employee/reimbursements/submit'
+                    className='nav-link dark-text'
                   >
                     Submit New Reimbursement
-                  </DropdownItem>
-                  <DropdownItem
-                    href='/employee/reimbursements/pending'
-                    className='nav-link'
-                    activeClassName='active'
+                  </Link>
+                  <Link
+                    to='/employee/reimbursements/pending'
+                    className='nav-link dark-text'
                   >
                     View Pending Reimbursements
-                  </DropdownItem>
-                  <DropdownItem
-                    href='/employee/reimbursements/history'
-                    className='nav-link'
-                    activeClassName='active'
+                  </Link>
+                  <Link
+                    to='/employee/reimbursements/history'
+                    className='nav-link dark-text'
                   >
                     View Past Reimbursements
-                  </DropdownItem>
+                  </Link>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav inNavbar>
@@ -164,20 +155,18 @@ export class NavbarComp extends React.Component<
                   My Profile
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem
-                    href='/employee/profile/view'
-                    className='nav-link'
-                    activeClassName='active'
+                  <Link
+                    to='/employee/profile/view'
+                    className='nav-link dark-text'
                   >
                     View Profile
-                  </DropdownItem>
-                  <DropdownItem
-                    href='/employee/profile/update'
-                    className='nav-link'
-                    activeClassName='active'
+                  </Link>
+                  <Link
+                    to='/employee/profile/update'
+                    className='nav-link dark-text'
                   >
                     Update Profile
-                  </DropdownItem>
+                  </Link>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
@@ -185,7 +174,7 @@ export class NavbarComp extends React.Component<
           <NavLink
             onClick={this.props.logoutUser}
             to='/logout'
-            className='nav-link'
+            className='nav-link light-text'
             activeClassName='active'
           >
             Logout
@@ -198,8 +187,10 @@ export class NavbarComp extends React.Component<
   guestNav = () => {
     return (
       <div>
-        <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/landing'>RMS</NavbarBrand>
+        <Navbar color='dark' dark expand='md'>
+          <Link className='navbar-brand' to='/'>
+            RMS
+          </Link>
         </Navbar>
       </div>
     );

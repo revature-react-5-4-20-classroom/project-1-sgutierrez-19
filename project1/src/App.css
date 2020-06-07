@@ -14,7 +14,7 @@ body {
 
 #main-container {
   height: calc(100% - 56px);
-  margin-right: 0px;
+  max-width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

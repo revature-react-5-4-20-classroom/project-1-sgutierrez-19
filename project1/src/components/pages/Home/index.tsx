@@ -18,9 +18,6 @@ export class HomeC extends React.Component<IHomeCProps, any> {
     return (
       <>
         <Row>
-          <h1>EMPLOYEE HOMEPAGE</h1>
-        </Row>
-        <Row>
           <Col xs={6}>
             <div>
               <Row>
@@ -115,9 +112,6 @@ export class HomeC extends React.Component<IHomeCProps, any> {
   fManHome = () => {
     return (
       <>
-        <Row>
-          <h1>FINANCIAL MANAGER HOMEPAGE</h1>
-        </Row>
         <Row>
           <Col xs={6}>
             <div>

@@ -18,11 +18,11 @@ import { ManReimbursementsPageC } from './components/pages/ManReimbursementPage'
 import { ManUserPageC } from './components/pages/ManUserPage';
 import { ManEmployeePageC } from './components/pages/ManEmpPage';
 
-// interface IAppState {
-//   currUser: User | null;
-// }
+interface IAppState {
+  currUser: User | null;
+}
 
-export class App extends React.Component<any, any> {
+export class App extends React.Component<any, IAppState> {
   constructor(props: any) {
     super(props);
     this.state = {
