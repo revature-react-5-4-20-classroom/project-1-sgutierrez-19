@@ -1,6 +1,14 @@
 import React from 'react';
 import { User } from '../../../model/user';
-import { Row, Col } from 'reactstrap';
+import {
+  Row,
+  Col,
+  Card,
+  Button,
+  CardBody,
+  CardTitle,
+  CardText,
+} from 'reactstrap';
 
 interface IHomeCProps {
   currUser: User | null;
@@ -9,89 +17,88 @@ interface IHomeCProps {
 }
 
 export class HomeC extends React.Component<IHomeCProps, any> {
-  constructor(props: IHomeCProps) {
-    super(props);
-  }
+  // commenting out due to chrome console warning: Useless constructor  @typescript-eslint/no-useless-constructor
+  // constructor(props: IHomeCProps) {
+  //   super(props);
+  // }
 
   empHome = () => {
     return (
       <>
         <Row>
-          <h1>EMPLOYEE HOMEPAGE</h1>
-        </Row>
-        <Row>
           <Col xs={6}>
-            <div>
-              <Row>
-                <Col xs={12}>
+            <Card>
+              <CardBody>
+                <CardTitle>
                   <h3>Reimbursements</h3>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <button
+                </CardTitle>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push(
-                        '/home/employee/reimbursements/submit'
+                        '/employee/reimbursements/submit'
                       );
                     }}
                   >
                     Submit New Reimbursement
-                  </button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push(
-                        '/home/employee/reimbursements/pending'
+                        '/employee/reimbursements/pending'
                       );
                     }}
                   >
-                    View Open Reimbursements
-                  </button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button
+                    View Pending Reimbursements
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
                       this.props.history.push(
-                        '/home/employee/reimbursements/history'
+                        '/employee/reimbursements/history'
                       );
                     }}
                   >
                     View Past Reimbursements
-                  </button>
-                </Col>
-              </Row>
-            </div>
+                  </Button>
+                </CardText>
+              </CardBody>
+            </Card>
           </Col>
           <Col xs={6}>
-            <div>
-              <Row>
-                <Col xs={12}>
+            <Card>
+              <CardBody>
+                <CardTitle>
                   <h3>Profile</h3>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <button>View Profile</button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button>Update Profile</button>
-                </Col>
-              </Row>
-            </div>
+                </CardTitle>
+                <CardText>
+                  <Button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push('/employee/profile/view');
+                    }}
+                  >
+                    View Profile
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push('/employee/profile/update');
+                    }}
+                  >
+                    Update Profile
+                  </Button>
+                </CardText>
+              </CardBody>
+            </Card>
           </Col>
         </Row>
       </>
@@ -102,79 +109,98 @@ export class HomeC extends React.Component<IHomeCProps, any> {
     return (
       <>
         <Row>
-          <h1>FINANCIAL MANAGER HOMEPAGE</h1>
-        </Row>
-        <Row>
           <Col xs={6}>
-            <div>
-              <Row>
-                <Col xs={12}>
+            <Card>
+              <CardBody>
+                <CardTitle>
                   <h3>Reimbursements</h3>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <button
+                </CardTitle>
+                <CardText>
+                  <Button
                     onClick={(e) => {
                       e.preventDefault();
-                      this.props.history.push('/employee/reimbursements/view');
+                      this.props.history.push('/manager/reimbursements/review');
                     }}
                   >
-                    Review Open Reimbursements
-                  </button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button>View Past Reimbursements</button>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12}>
-                  <button>Search By Employee</button>
-                </Col>
-              </Row>
-            </div>
+                    Review Pending Reimbursements
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push(
+                        '/manager/reimbursements/history'
+                      );
+                    }}
+                  >
+                    View Past Reimbursements
+                  </Button>
+                </CardText>
+                <CardText>
+                  <Button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push('/manager/reimbursements/search');
+                    }}
+                  >
+                    Search By Employee
+                  </Button>
+                </CardText>
+              </CardBody>
+            </Card>
           </Col>
           <Col xs={6}>
             <Row>
               <Col xs={12}>
-                <div>
-                  <Row>
-                    <Col xs={12}>
+                <Card>
+                  <CardBody>
+                    <CardTitle>
                       <h3>Employees</h3>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col xs={12}>
-                      <button>View All Employees</button>
-                    </Col>
-                  </Row>
-                </div>
+                    </CardTitle>
+                    <CardText>
+                      <Button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          this.props.history.push('/manager/employees');
+                        }}
+                      >
+                        View All Employees
+                      </Button>
+                    </CardText>
+                  </CardBody>
+                </Card>
               </Col>
             </Row>
             <Row>
               <Col xs={12}>
-                <div>
-                  <Row>
-                    <Col xs={12}>
+                <Card>
+                  <CardBody>
+                    <CardTitle>
                       <h3>Profile</h3>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col xs={12}>
-                      <button>View Profile</button>
-                    </Col>
-                  </Row>
-
-                  <Row>
-                    <Col xs={12}>
-                      <button>Update Profile</button>
-                    </Col>
-                  </Row>
-                </div>
+                    </CardTitle>
+                    <CardText>
+                      <Button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          this.props.history.push('/manager/profile/view');
+                        }}
+                      >
+                        View Profile
+                      </Button>
+                    </CardText>
+                    <CardText>
+                      <Button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          this.props.history.push('/manager/profile/update');
+                        }}
+                      >
+                        Update Profile
+                      </Button>
+                    </CardText>
+                  </CardBody>
+                </Card>
               </Col>
             </Row>
           </Col>
@@ -185,7 +211,6 @@ export class HomeC extends React.Component<IHomeCProps, any> {
 
   whichHome = () => {
     const userRole = this.props.currUser && this.props.currUser.role;
-    console.log('HOMEPAGE: ', userRole);
     if (userRole === 'Employee') {
       return this.empHome();
     } else if (userRole === 'Finance Manager') {

@@ -1,3 +1,11 @@
 #login-panel {
-  background-color: white;
+  background-color: #f5f5f5;
+}
+
+.dark-text {
+  color: black !important;
+}
+
+.light-text {
+  color: white !important;
 }

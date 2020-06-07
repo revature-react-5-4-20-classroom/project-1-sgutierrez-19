@@ -1,9 +1,10 @@
 import { server } from './server';
 import { Reimbursement } from '../model/reimbursement';
 
-export async function getUserById(id: number) {
-  return await server.get(`/users/${id}`);
-}
+// Unused due to getting user info at login and storing it to state
+// export async function getUserById(id: number) {
+//   return await server.get(`/users/${id}`);
+// }
 
 export async function getReimById(userId: number) {
   try {

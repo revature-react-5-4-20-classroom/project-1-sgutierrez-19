@@ -13,3 +13,12 @@ export async function login(un: string, pw: string): Promise<User> {
     throw error;
   }
 }
+
+export async function logout() {
+  try {
+    await server.get('/logout');
+    return;
+  } catch (error) {
+    throw error;
+  }
+}

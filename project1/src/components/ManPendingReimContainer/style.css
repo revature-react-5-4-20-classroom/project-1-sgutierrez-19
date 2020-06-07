@@ -1,0 +1,9 @@
+.pending-div {
+  overflow: auto;
+  max-height: 80vh;
+}
+
+.reim-notification {
+  color: white;
+  font-weight: bold;
+}

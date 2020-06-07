@@ -1,4 +1,4 @@
-.reimbursement-card {
-  height: 150px;
-  width: 200px;
+.reim-div {
+  overflow: auto;
+  max-height: 80vh;
 }

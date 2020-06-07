@@ -1,11 +1,22 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, Button, Col, Row } from 'reactstrap';
-import { createReim, getReimById } from '../../../api/employee';
-import { User } from '../../../model/user';
-import { ReimbursementCardC } from '../../ReimbursementCard';
+import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+  Col,
+  Row,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+} from 'reactstrap';
+import { createReim } from '../../api/employee';
+import { User } from '../../model/user';
+import { ReimbursementCardC } from '../ReimbursementCard';
 
 import './style.css';
-import { Reimbursement } from '../../../model/reimbursement';
+import { Reimbursement } from '../../model/reimbursement';
 
 interface ISubmitReimPageCProps {
   currUser: User;
@@ -52,13 +63,11 @@ export class SubmitReimPageC extends React.Component<
     let rAmount = +this.state.amount!;
     let rType = this.state.type;
     let rDescription = this.state.description;
-    console.log(rAmount, rType, rDescription);
     if (isNaN(rAmount) || rAmount < 0.01) {
       return alert('Amount must be a number.  Example: 19.99');
     }
     try {
       let makeReim = await createReim(rAmount, rDescription, rType);
-      console.log('makereim: ', makeReim);
       let r = makeReim.data;
       let newReim = new Reimbursement(
         r.author,
@@ -79,19 +88,28 @@ export class SubmitReimPageC extends React.Component<
     return (
       <>
         <Row>
-          <Col xs={12}>
-            <Form onSubmit={this.submitReim}>
+          <Col xs={6} className='offset-3'>
+            <Form className='input-form' onSubmit={this.submitReim}>
+              <Label className='input-form-label'>
+                Submit a New Reimbursement
+              </Label>
               <FormGroup>
                 <Label for='amount'>Amount</Label>
-                <Input
-                  type='text'
-                  name='amount'
-                  id='reim-amount'
-                  placeholder='0.00'
-                  value={this.state.amount}
-                  onChange={this.setAmount}
-                  required
-                />
+
+                <InputGroup>
+                  <InputGroupAddon addonType='prepend'>
+                    <InputGroupText>$</InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    type='text'
+                    name='amount'
+                    id='reim-amount'
+                    placeholder='0.00'
+                    value={this.state.amount}
+                    onChange={this.setAmount}
+                    required
+                  />
+                </InputGroup>
               </FormGroup>
               <FormGroup>
                 <Label for='type'>Reimbursement Type</Label>
@@ -124,12 +142,12 @@ export class SubmitReimPageC extends React.Component<
           </Col>
         </Row>
         <Row>
-          <Col xs={12}>
+          <Col xs={6} className='offset-3'>
             {this.state.reimbursement ? (
               <>
-                <hr />
-                <h3> Your new reimbursement request has been submitted!</h3>
-
+                <h3 className='reim-notification'>
+                  --- Reimbursement Request Created ---
+                </h3>
                 <ReimbursementCardC reimbursement={this.state.reimbursement} />
               </>
             ) : (
