@@ -65,10 +65,15 @@ export class EmpReimbursementsPageC extends React.Component<
             path='/employee/reimbursements/pending'
             render={(props: any) => {
               return (
-                <ReimbursementContainerC
-                  reimbursements={this.state.pendingReim}
-                  {...props}
-                />
+                <>
+                  <h3 className='reim-notification'>
+                    Your Pending Reimbursements:
+                  </h3>
+                  <ReimbursementContainerC
+                    reimbursements={this.state.pendingReim}
+                    {...props}
+                  />
+                </>
               );
             }}
           ></Route>
@@ -76,10 +81,15 @@ export class EmpReimbursementsPageC extends React.Component<
             path='/employee/reimbursements/history'
             render={(props: any) => {
               return (
-                <ReimbursementContainerC
-                  reimbursements={this.state.pastReim}
-                  {...props}
-                />
+                <>
+                  <h3 className='reim-notification'>
+                    Your Previous Reimbursements:
+                  </h3>
+                  <ReimbursementContainerC
+                    reimbursements={this.state.pastReim}
+                    {...props}
+                  />
+                </>
               );
             }}
           ></Route>

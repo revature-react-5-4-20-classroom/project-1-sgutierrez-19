@@ -2,3 +2,8 @@
   overflow: auto;
   max-height: 80vh;
 }
+
+.status-notification {
+  color: white;
+  font-weight: bold;
+}
