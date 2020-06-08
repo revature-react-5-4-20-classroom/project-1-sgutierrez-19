@@ -43,9 +43,7 @@ export class ManPenReimContainer extends React.Component<
     return (
       <Row>
         <Col xs={6} className='offset-3'>
-          <h3 className='reim-notification'>
-            Employees' Reimbursement History
-          </h3>
+          <h3 className='reim-notification'>Reimbursements Needing Review:</h3>
           <div className='pending-div'>
             {this.props.reimbursements &&
               this.props.reimbursements.map((r) => {

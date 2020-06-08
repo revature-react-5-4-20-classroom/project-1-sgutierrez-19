@@ -23,6 +23,7 @@ export class AllUsersContainerC extends React.Component<
       <>
         <Row>
           <Col xs={6} className='offset-3'>
+            <h3 className='status-notification'>All Employees:</h3>
             <div className='user-div'>
               {this.props.allUsers &&
                 this.props.allUsers.map((u) => {

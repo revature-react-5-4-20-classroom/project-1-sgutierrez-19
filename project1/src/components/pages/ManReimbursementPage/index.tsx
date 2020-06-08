@@ -4,10 +4,8 @@ import { Row, Col } from 'reactstrap';
 
 import './style.css';
 import { ReimbursementContainerC } from '../../ReimbursementContainer';
-import { getReimById } from '../../../api/employee';
 import { Switch, Route } from 'react-router-dom';
 import { Reimbursement } from '../../../model/reimbursement';
-import { SubmitReimPageC } from '../../SubmitReim';
 import { getReimByStatus } from '../../../api/manager';
 import { ManPenReimContainer } from '../../ManPendingReimContainer';
 import { SearchC } from '../../Search';
@@ -95,14 +93,14 @@ export class ManReimbursementsPageC extends React.Component<
                 <>
                   <Row>
                     <Col xs={6}>
-                      <h1>Approved</h1>
+                      <h3 className='status-notification'>Approved</h3>
                       <ReimbursementContainerC
                         reimbursements={this.state.appReims}
                         {...props}
                       />
                     </Col>
                     <Col xs={6}>
-                      <h1>Denied</h1>
+                      <h3 className='status-notification'>Denied</h3>
                       <ReimbursementContainerC
                         reimbursements={this.state.denReims}
                         {...props}

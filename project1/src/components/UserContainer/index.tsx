@@ -19,6 +19,7 @@ export class UserContainerC extends React.Component<IUserContainerCProps, any> {
     return (
       <Row>
         <Col xs={6} className='offset-3'>
+          <h3 className='status-notification'>Your Profile:</h3>
           <div className='user-div'>
             <UserCardC currUser={this.props.currUser} />
           </div>

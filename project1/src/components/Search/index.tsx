@@ -26,6 +26,7 @@ interface ISearchCProps {
 interface ISearchCState {
   searchId: number | undefined;
   reimbursements: Reimbursement[] | null;
+  resultHeader: string;
 }
 export class SearchC extends React.Component<ISearchCProps, ISearchCState> {
   constructor(props: ISearchCProps) {
@@ -33,6 +34,7 @@ export class SearchC extends React.Component<ISearchCProps, ISearchCState> {
     this.state = {
       searchId: undefined,
       reimbursements: null,
+      resultHeader: '',
     };
   }
 
@@ -50,6 +52,11 @@ export class SearchC extends React.Component<ISearchCProps, ISearchCState> {
       return alert('You must pass a valid employee ID number.  Example: 12');
     }
     let reimArr = await getReimById(empId);
+    if (reimArr) {
+      this.setState({
+        resultHeader: `${reimArr.length} reimbursements found for ${reimArr[0].author}`,
+      });
+    }
     this.setState({
       reimbursements: reimArr,
     });
@@ -58,7 +65,7 @@ export class SearchC extends React.Component<ISearchCProps, ISearchCState> {
   render() {
     return (
       <>
-        <Row>
+        <Row id='testingtesting' className='search-row'>
           <Col xs={{ size: 6, offset: 3 }}>
             <Form inline onSubmit={this.searchReims}>
               <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
@@ -85,6 +92,9 @@ export class SearchC extends React.Component<ISearchCProps, ISearchCState> {
             </Form>
           </Col>
         </Row>
+        <h3 className='status-notification'>
+          {this.state.resultHeader && this.state.resultHeader}
+        </h3>
         <ReimbursementContainerC
           reimbursements={this.state.reimbursements}
           currUser={this.props.currUser}
